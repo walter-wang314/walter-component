@@ -2,7 +2,7 @@ import React, { useContext, useState, FunctionComponentElement } from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './menu';
 import { MenuItemProps } from './menuItem';
-import { CaretDownOutlined } from '@ant-design/icons';
+import Icon from '../Icon/icon';
 import Transition from '../Transition/transition';
 export interface SubMenuProps {
   index?: string;
@@ -29,7 +29,6 @@ const SubMenu: React.FC<SubMenuProps> = ({
     'is-vertical': context.mode === 'vertical',
   });
   const handleClick = (e: React.MouseEvent) => {
-    console.log('handleClick');
     e.preventDefault();
     setOpen(!menuOpen);
   };
@@ -47,15 +46,13 @@ const SubMenu: React.FC<SubMenuProps> = ({
           onClick: handleClick,
         }
       : {};
-  type reactEvent = React.MouseEvent;
-
   const hoverEvents =
     context.mode !== 'vertical'
       ? {
-          onMouseEnter: (e: reactEvent) => {
+          onMouseEnter: (e: React.MouseEvent) => {
             handleMouse(e, true);
           },
-          onMouseLeave: (e: reactEvent) => {
+          onMouseLeave: (e: React.MouseEvent) => {
             handleMouse(e, false);
           },
         }
@@ -77,7 +74,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
       }
     });
     return (
-      <Transition in={menuOpen} timeout={300} animation="zoom-in-bottom">
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
         <ul className={subMenuClasses}>{childrenComponent}</ul>
       </Transition>
     );
@@ -86,7 +83,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        <CaretDownOutlined className="arrow-icon" />
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

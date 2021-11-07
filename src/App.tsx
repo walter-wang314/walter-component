@@ -6,7 +6,7 @@ import SubMenu from './components/Menu/subMenu';
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex="1" className="hello" mode="vertical">
+      <Menu className="hello" mode="horizontal">
         <SubMenu title={'介绍'}>
           <MenuItem>1</MenuItem>
           <MenuItem>2</MenuItem>

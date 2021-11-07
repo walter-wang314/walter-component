@@ -1,24 +1,20 @@
-import React, {
-  FC,
-  useState,
-  createContext,
-  CSSProperties,
-  FunctionComponentElement,
-} from 'react';
+import React, { FC, useState, createContext, CSSProperties } from 'react';
 import classNames from 'classnames';
 import { MenuItemProps } from './menuItem';
-import { render } from '@testing-library/react';
 
 type MenuMode = 'horizontal' | 'vertical';
 export interface MenuProps {
-  defaultIndex: string;
-  className: string;
+  /**默认 active 的菜单项的索引值 */
+  defaultIndex?: string;
+  className?: string;
+  /**菜单类型 横向或者纵向 */
   mode?: MenuMode;
   style?: CSSProperties;
+  /**点击菜单项触发的回掉函数 */
   onSelect?: (selectedIndex: string) => void;
+  /**设置子菜单的默认打开 只在纵向模式下生效 */
   defaultOpenSubMenus?: string[];
 }
-
 interface IMenuContext {
   index: string;
   onSelect?: (selectedIndex: string) => void;
@@ -27,49 +23,56 @@ interface IMenuContext {
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' });
-
+/**
+ * 为网站提供导航功能的菜单。支持横向纵向两种模式，支持下拉菜单。
+ * ~~~js
+ * import { Menu } from 'vikingship'
+ * ~~~
+ */
 export const Menu: FC<MenuProps> = (props) => {
   const {
-    defaultIndex,
     className,
     mode,
     style,
+    children,
+    defaultIndex,
     onSelect,
     defaultOpenSubMenus,
-    children,
   } = props;
-  const [activeMenuIndex, setActiveMenuIndex] = useState(defaultIndex);
-  const classes = classNames('menu', className, {
+  const [currentActive, setActive] = useState(defaultIndex);
+  const classes = classNames('viking-menu', className, {
     'menu-vertical': mode === 'vertical',
-    'munu-horizontal': mode === 'horizontal',
+    'menu-horizontal': mode !== 'vertical',
   });
-  const handleMenuClick = (index: string) => {
-    setActiveMenuIndex(index);
+  const handleClick = (index: string) => {
+    setActive(index);
     if (onSelect) {
       onSelect(index);
     }
   };
   const passedContext: IMenuContext = {
-    index: activeMenuIndex ? activeMenuIndex : '0',
-    onSelect: handleMenuClick,
+    index: currentActive ? currentActive : '0',
+    onSelect: handleClick,
     mode,
     defaultOpenSubMenus,
   };
-
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement = child as FunctionComponentElement<MenuItemProps>;
+      const childElement = child as React.FunctionComponentElement<
+        MenuItemProps
+      >;
       const { displayName } = childElement.type;
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index: index.toString(),
         });
       } else {
-        console.error('Only MenuItem and SubMenu can be the children of Menu');
+        console.error(
+          'Warning: Menu has a child which is not a MenuItem component',
+        );
       }
     });
   };
-
   return (
     <ul className={classes} style={style} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
@@ -78,7 +81,6 @@ export const Menu: FC<MenuProps> = (props) => {
     </ul>
   );
 };
-
 Menu.defaultProps = {
   defaultIndex: '0',
   mode: 'horizontal',
