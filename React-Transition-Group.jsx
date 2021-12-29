@@ -1,3 +1,5 @@
+//有时间么？有一个问题block住一天了，昨天和 seth 沟通了一下，也没有结果，我尝试了半天，感觉是 react-transition-group 包的问题，有些像bug，就是entered这个state是在entering执行之后才开始执行的，但是exited这个state和exiting这个state是一起执行的，感觉这样有问题。
+
 import React, { useState, useRef } from 'react';
 import { Transition } from 'react-transition-group';
 
