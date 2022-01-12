@@ -1,35 +1,67 @@
-//https://stackoverflow.com/questions/35111090/text-in-a-flex-container-doesnt-wrap-in-ie11
-
 import React, { useState, useRef } from 'react';
 import { Transition } from 'react-transition-group';
 
-const duration = 1000;
-const defaultStyle = {
+const timing = 350;
+const timingFn = 'ease-out';
+const commonStyle = {
   background: 'gray',
-  transition: `height ${duration}ms ease-in-out`,
-  overflowY: 'hidden',
-  height: '0',
+  height: 0,
+  overflow: 'hidden',
+  transition: `height ${timing}ms ${timingFn}`,
 };
 
-const transitionStyles = {
-  entering: { height: '' },
-  entered: { height: 'auto', overflowY: 'visible', background: 'red' },
-  exiting: { height: '' },
-  exited: { height: '0', overflowY: 'hidden', background: 'blue' },
+const collapseStyles = {
+  exited: {
+    background: 'blue',
+    display: 'none',
+  },
+  exiting: commonStyle,
+  entering: commonStyle,
+  entered: {
+    background: 'red',
+    display: 'block',
+  },
 };
 
-function Fade() {
+function ExpandPanel(props) {
   const [open, setOpen] = useState(false);
-  const ref = useRef();
-
-  const getTargetHeight = () => {
-    const value = (ref.current.offsetHeight || 0).toString() + 'px';
-    console.log('getTargetHeight → value: ', value);
-    return value;
-  };
+  const nodeRef = useRef();
+  const { children, ...rest } = props;
 
   const handleButtonClick = () => {
     setOpen(!open);
+  };
+
+  /* -- Expanding -- */
+  const handleEnter = () => {
+    console.log('enter');
+    nodeRef.current.style.height = '0';
+  };
+
+  const handleEntering = () => {
+    console.log('entering');
+    nodeRef.current.style.height = `${nodeRef.current.scrollHeight}px`;
+  };
+
+  const handleEntered = () => {
+    console.log('entered');
+    nodeRef.current.style.height = null;
+  };
+
+  /* -- Collapsing -- */
+  const handleExit = () => {
+    console.log('exit');
+    nodeRef.current.style.height = `${nodeRef.current.scrollHeight}px`;
+    nodeRef.current.offsetHeight; // eslint-disable-line no-unused-expressions
+  };
+
+  const handleExiting = () => {
+    console.log('exiting');
+    nodeRef.current.style.height = '0';
+  };
+
+  const handleExited = () => {
+    console.log('exited');
   };
 
   return (
@@ -37,46 +69,31 @@ function Fade() {
       <button onClick={handleButtonClick}>Toggle</button>
       <Transition
         in={open}
-        timeout={{ enter: duration, exit: 0 }}
-        nodeRef={ref}
-        // unmountOnExit={true}
-        onEnter={() => {
-          console.log('onEnter');
-          transitionStyles.entering.height = getTargetHeight();
-        }}
-        onEntering={() => {
-          console.log('onEntering');
-        }}
-        onEntered={() => {
-          console.log('onEntered');
-        }}
-        onExit={() => {
-          console.log('onExit');
-          transitionStyles.exiting.height = getTargetHeight();
-        }}
-        onExiting={() => {
-          console.log('onExiting');
-        }}
-        onExited={() => {
-          console.log('onExited');
-          // transitionStyles.exited.display = 'none';
-        }}
+        timeout={timing}
+        nodeRef={nodeRef}
+        onEnter={handleEnter}
+        onEntering={handleEntering}
+        onEntered={handleEntered}
+        onExit={handleExit}
+        onExiting={handleExiting}
+        onExited={handleExited}
       >
         {(state) => (
-          <div
-            style={{
-              ...defaultStyle,
-              ...transitionStyles[state],
-            }}
-          >
-            <h1 ref={ref} style={{ padding: 0, margin: 0 }}>
-              Hello
-            </h1>
-          </div>
+          <>
+            <div>hello</div>
+            <div
+              css={collapseStyles[state]}
+              ref={nodeRef}
+              {...rest}
+              style={{ width: '200px', height: '200px' }}
+            >
+              {children}
+            </div>
+          </>
         )}
       </Transition>
     </>
   );
 }
 
-export default Fade;
+export default ExpandPanel;
