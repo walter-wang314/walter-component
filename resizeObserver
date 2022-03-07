@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>resizeObserver</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #000;
+      width: 250px;
+    }
+
+    .box {
+      flex: 1;
+      height: 300px;
+      background-color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box"></div>
+    <div class="text" contenteditable="">Text</div>
+  </div>
+</body>
+<script>
+  const box = document.querySelector('.box');
+  const container = document.querySelector('.container');
+
+  const observer = new ResizeObserver(entries => {
+    console.log('entries:', entries);
+    const boxElement = entries[0];
+    const isSmall = boxElement.contentRect.width < 200;
+    boxElement.target.style.backgroundColor = isSmall ? '#0f0' : '#f00';
+  });
+
+  observer.observe(box);
+</script>
+
+</html>
