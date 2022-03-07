@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutation Observer</title>
+</head>
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid #000;
+    width: 400px;
+    background-color: #BADBE3;
+  }
+
+  .child {
+    width: 100px;
+    height: 100px;
+    background-color: #D77A83;
+    margin: 10px;
+  }
+</style>
+
+<body>
+  <div class="container" id="containerid">
+    <div class="child" contenteditable>Box 1</div>
+    <div class="child" contenteditable>Box 2</div>
+    <div class="child" contenteditable>Box 3</div>
+  </div>
+</body>
+<script>
+  const container = document.querySelector('.container');
+  const observer = new MutationObserver(entries => {
+    console.log('entries:', entries);
+  });
+  observer.observe(container, {
+    childList: true,
+    attributes: true,
+    attributeOldValue: true,
+    // which of the attrubute changes to observe
+    attributeFilter: ['title'],
+  });
+
+  // charactors are not children, if the charactor of the child needd to be observed, use childNodes to observe
+  // observer.observe(container.children[0].childNodes[0], {
+  //   characterData: true,
+  //   characterDataOldValue: true,
+  // });
+
+  container.children[0].remove();
+  container.appendChild(document.createElement('div'));
+</script>
+
+</html>

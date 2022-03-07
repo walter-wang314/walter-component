@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intersection Observer</title>
+</head>
+<style>
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .card {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: 150ms;
+  }
+
+  .card.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+</style>
+
+<body>
+  <div class="card-container">
+    <div class="card show">First Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Card</div>
+    <div class="card">Last Card</div>
+  </div>
+</body>
+<script>
+  // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#how_intersection_is_calculated
+
+
+  const cardContainer = document.querySelector('.card-container');
+  const cards = document.querySelectorAll('.card');
+
+  const options = {
+    // actual container
+    root: null,
+
+    // To set the margins of the container
+    rootMargin: '0px',
+
+    // how many percentage of the element appears of the root, before the intersection is calculated
+    threshold: 1
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    // target element:
+    //   entry.boundingClientRect
+    //   return value of getBoundingClientRect();
+
+    //   entry.intersectionRatio
+    //   what is percentage of the element is on the screen
+
+
+    //   entry.intersectionRect
+
+
+    //   entry.isIntersecting
+    //   is the element visible to the user
+
+    //   entry.rootBounds
+    //   the bound of the root element
+
+    //   entry.target
+    //   entry.time
+
+    console.log(entries);
+    entries.forEach(entry => {
+      entry.target.classList.toggle('show', entry.isIntersecting);
+
+      // if (entry.isIntersecting) {
+      //   observer.unobserve(entry.target);
+      // }
+    });
+  }, options);
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+
+  // observer.observe(card[0]);
+</script>
+
+</html>
