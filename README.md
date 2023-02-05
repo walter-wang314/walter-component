@@ -47,3 +47,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 tooltip accessibility issue
 https://pressbooks.library.ryerson.ca/wafd/chapter/tooltips/
 https://sarahmhigley.com/writing/tooltips-in-wcag-21/
+
+https://experienceleague.adobe.com/docs/experience-manager-learn/sites/developing/aem-project-archetype.html
