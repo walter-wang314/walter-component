@@ -43,9 +43,11 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-
 tooltip accessibility issue
 https://pressbooks.library.ryerson.ca/wafd/chapter/tooltips/
 https://sarahmhigley.com/writing/tooltips-in-wcag-21/
 
 https://experienceleague.adobe.com/docs/experience-manager-learn/sites/developing/aem-project-archetype.html
+
+Avoiding CSS Namespace Pollution In Styled Components In Micro-Frontends
+https://www.leafgrow.io/blog/avoiding-css-namespace-pollution-in-styled-components-in-micro-frontends
