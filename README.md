@@ -54,3 +54,6 @@ https://www.leafgrow.io/blog/avoiding-css-namespace-pollution-in-styled-componen
 
 
 B012022091400006131
+
+# Latest version not working with rollup
+https://lightrun.com/answers/styled-components-babel-plugin-styled-components-latest-version-not-working-with-rollup-
