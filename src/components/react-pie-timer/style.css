@@ -1,0 +1,36 @@
+body {
+  background-color: whitesmoke;
+}
+
+.clock {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  background-color: cadetblue;
+  border-radius: 50%;
+  margin: 170px auto;
+}
+
+.rotator {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: lightcoral;
+  border-radius: 200px 0 0 200px;
+  transform-origin: 100% 50%;
+  transition: transform 1s linear;
+}
+
+.mask {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: cadetblue;
+  border-radius: 200px 0 0 200px;
+}
+
+.mask.mask2 {
+  background-color: lightcoral;
+  border-radius: 0 200px 200px 0;
+  right: 0;
+}
