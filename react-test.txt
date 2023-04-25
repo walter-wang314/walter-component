@@ -1,0 +1,89 @@
+https://github.com/gopinav/React-Testing-Tutorial
+
+
+
+React Testing Library
+Javascript testing utility that provides virtual DOM for testing React components
+React Testing Library provides a virtual DOM which we can use to interact with
+and verify the behaviour of a react component
+Testing Library is infact a family of packages which helps test Ul components
+The core library is called DOM Testing library and RTL is simply a wrapper around
+this core library to test React applications in an easier way
+
+
+
+
+Unit tests
+
+
+
+Integration tests
+
+
+
+
+E2E tests
+
+
+
+
+Test Driven Development ( TDD )
+
+
+
+Test Driven Development (TDD)
+Test driven development is a software development process where you write tests
+before writing the software code
+Once the tests have been written, you then write the code to ensure the tests pass
+1.
+..
+Create tests that verify the functionality of a specific feature
+2.
+Write software code that will run the tests successfully when re-executed
+3.
+Refactor the code for optimization while ensuring the tests continue to pass
+Also called red-green testing as all tests go from a red failed state to a green
+passed state
+
+
+
+
+
+key words:
+
+test
+
+describe
+
+expect
+
+
+
+Filename Conventions
+
+
+Code Coverage
+
+
+
+
+Assertions
+
+When writing tests, we often need to check values meet certain conditions.
+Assertions decide if a test passes or fails
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
