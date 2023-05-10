@@ -83,10 +83,6 @@ timer2.ontick = function () {
 timer2.start();
 
 
-Pie Timer Tutorial - React Component
-https://www.youtube.com/watch?v=JR7LfPsUEiU
-
-
 
 react-countdown-circle-timer
 https://www.npmjs.com/package/react-countdown-circle-timer
