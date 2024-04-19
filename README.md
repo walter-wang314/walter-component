@@ -63,6 +63,11 @@ https://stackoverflow.com/questions/33299687/how-to-convert-dd-mm-yyyy-string-in
 
 
 
+window.location.href += (window.location.href.indexOf('?') > -1 ? '&' : '?') + 'key=value';
+
+
+
+
 
 
 <ul><li><a target="_new" href="https://storybook.js.org/docs/migration-guide/">storybook.js.org - Migration guide for Storybook 7.0</a></li><li><a target="_new" href="https://comics.ha.com/tutorial/comics-grading.s?show=comicdefinitions">comics.ha.com - Comic Book Grading Guide | How to Grade Your Comics by ...</a></li><li><a target="_new" href="https://storybook.js.org/blog/storybook-7-0/">storybook.js.org - Storybook 7.0</a></li><li><a target="_new" href="https://github.com/storybookjs/storybook/blob/next/MIGRATION.md">github.com - storybook/MIGRATION.md at next</a></li><li><a target="_new" href="https://betterprogramming.pub/problems-and-solutions-upgrading-to-storybook-7-62c868b23af4">betterprogramming.pub - Problems and Solutions Upgrading to Storybook 7</a></li><li><a target="_new" href="https://storybook.js.org/blog/storybook-7-6/">storybook.js.org - Storybook 7.6</a></li></ul>
