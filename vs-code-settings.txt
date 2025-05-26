@@ -1,0 +1,307 @@
+windows 更改的快捷键：
+
+// 2020年7月26日
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+/",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "editor.action.commentLine"
+    },
+    {
+        "key": "cmd+l",
+        "command": "workbench.action.navigateToLastEditLocation"
+    },
+    // ---- 终端配置 start -----
+    {
+        "key": "alt+1",
+        "command": "workbench.action.terminal.focusPrevious"
+    },
+    {
+        "key": "alt+2",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.terminal.focusNext", // 切换到下一个终端
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.terminal.kill", // 关闭当前终端
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.terminal.new", // 打开新的终端
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.terminal.focusAtIndex1", // 打开终端1
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "workbench.action.terminal.focusAtIndex2",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "workbench.action.terminal.focusAtIndex3",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.action.terminal.focusAtIndex4",
+        "when": "terminalFocus"
+    }
+    // ---- 终端配置 end -----
+]
+
+
+
+
+
+
+vscode setting 备份：
+
+{
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.fontSize": 18,
+  "files.autoSave": "onFocusChange",
+  "editor.fontFamily": "Microsoft YaHei Mono,Consolas, 'Courier New', monospace",
+  // start of basic vs settings
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.wordWrap": "on",
+  // "javascript.format.enable": false,
+  "breadcrumbs.enabled": true,
+  // end of basic vs settings
+  "php.suggest.basic": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true,
+  "[markdown]": {},
+  "window.zoomLevel": 0,
+  // start of emmet vs settings
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "wxml": "html"
+  },
+  // end of emmet vs settings
+  // start of beautify extention
+  // "beautify.tabSize": 4,
+  // "beautify.ignore": [""],
+  // end of beautify extention
+  // vue settings
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      // Wrap attributes to new lines [auto|force|force-aligned|force-expand-multiline] ["auto"]
+      "wrap_attributes": "auto"
+    },
+    "wrap_attributes": "force-aligned"
+  },
+  // vue settings
+  // start of prettier
+  "prettier.tabWidth": 4,
+  "prettier.disableLanguages": [
+    ""
+  ],
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.jsxBracketSameLine": true,
+  // end of prettier
+  // "react.beautify.formatter": "esformatter",
+  "files.associations": {
+    "*.wxss": "css",
+    "*.wxml": "html",
+    "*.edge": "html",
+    "*.env": "js",
+    "*.cjson": "jsonc",
+    "*.wxs": "javascript"
+  },
+  // 能够使用Decorator而不报错
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  // begin of sync settings
+  "sync.gist": "50fd5d00075fbafe94451789ce713851",
+  "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.forceDownload": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.preferences.quoteStyle": "single",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "json.schemas": [],
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+   "terminal.integrated.shell.windows": "C:\\Program Files\\Git\bin\\bash.exe",
+    "terminal.integrated.fontSize": 14,
+  // code help center 占用资源过高的问题：
+  // https://github.com/microsoft/vscode/issues/11963
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/tmp": true,
+    "**/bower_components": true,
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/bower_components/**": true,
+    "**/dist/**": true
+  },
+  "minapp-vscode.disableAutoConfig": true,
+}
+
+
+Snippet:
+
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"const xxx = require(xxx)": {
+        "prefix": "crq",
+        "body": [
+            "const ${1:name} = require('${1:name}')"
+        ],
+        "description": "node import package"
+    },
+
+    "console.log": {
+        "prefix": "clog",
+        "body": [
+            "console.log(${1});"
+        ],
+        "description": "console.log"
+    },
+
+    "arrow func return": {
+        "prefix": "arr",
+        "body": [
+            "(${1}) => ${2}"
+        ],
+        "description": "arrow func return"
+    },
+
+    "import component": {
+        "prefix": "impr",
+        "body": [
+            "import ${2} from '${1}'"
+        ],
+        "description": "import component"
+    },
+}
+
+
+
+
+vs code 插件：
+
+Auto Close Tag
+
+Auto import
+
+Auto Rename Tag
+
+Better Comments
+
+Color Highlight
+
+DotEnv
+
+EditorConfig
+
+ES7 + React
+
+Gitlens
+
+Indent-rainbow
+
+Material Icon Theme
+
+Open in browser
+
+Path Intellisense
+
+Prettier 
+
+Vscode icons
+
+
+
