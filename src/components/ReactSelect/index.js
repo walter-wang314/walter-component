@@ -1,5 +1,5 @@
 import React from 'react';
-import Select, { components } from 'react-select';
+import Select from 'react-select';
 
 // 选项配置
 const options = [
@@ -14,23 +14,25 @@ const options = [
   },
 ];
 
-// 自定义 Option 显示样式（包括禁用逻辑）
+// ✅ 正确使用 react-select 提供的样式系统，确保 option 样式生效
 const CustomOption = (props) => {
-  const { data, innerRef, innerProps, isDisabled } = props;
+  const { data, innerRef, innerProps, getStyles } = props;
+  const optionStyles = getStyles('option', props);
+
   return (
     <div
       ref={innerRef}
       {...innerProps}
       style={{
-        padding: '8px 12px',
-        cursor: isDisabled ? 'not-allowed' : 'pointer',
-        opacity: isDisabled ? 0.5 : 1,
-        backgroundColor: props.isFocused ? '#f0f0f0' : 'transparent',
+        ...optionStyles,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
       }}
     >
       <div style={{ fontWeight: 'bold' }}>{data.label}</div>
       {data.description && (
-        <div style={{ fontSize: '12px', color: '#555', marginTop: '4px' }}>
+        <div style={{ fontSize: '12px', color: '#ddd', marginTop: '4px' }}>
           {data.description}
         </div>
       )}
@@ -47,31 +49,54 @@ export default function App() {
         Sub Product Type
       </label>
       <Select
-        placeholder="Please select"
+        isSearchable={false}
+        placeholder="Please Select"
         options={options}
         isOptionDisabled={(option) => option.isDisabled}
         components={{
           Option: CustomOption,
-          IndicatorSeparator: () => null, // ✅ 彻底移除竖线
+          IndicatorSeparator: () => null,
         }}
         styles={{
-          control: (base) => ({
+          control: (base, state) => ({
             ...base,
             borderRadius: 0,
-            borderColor: '#ccc',
-            minHeight: '40px',
+            borderColor: state.isFocused ? '#007bff' : '#767676',
             boxShadow: 'none',
+            minHeight: '40px',
+            '&:hover': {
+              borderColor: '#252525',
+            },
           }),
           menu: (base) => ({
             ...base,
             marginTop: 0,
             zIndex: 10,
+            borderRadius: 0,
+          }),
+          menuList: (base) => ({
+            ...base,
+            borderRadius: 0,
+            padding: 0,
+          }),
+          dropdownIndicator: (base) => ({
+            ...base,
+            color: '#666',
+            ':hover': {
+              color: '#666',
+            },
           }),
           option: (base, state) => ({
             ...base,
-            backgroundColor: state.isFocused ? '#f0f0f0' : 'transparent',
-            color: '#000',
-            cursor: state.isDisabled ? 'not-allowed' : 'pointer',
+            backgroundColor: state.isFocused ? '#0d6efd' : '#fff',
+            color: state.isFocused
+              ? '#fff'
+              : state.isDisabled
+              ? '#999'
+              : '#000',
+            cursor: state.isDisabled ? 'not-allowed' : 'default',
+            padding: '8px 12px',
+            fontSize: '14px',
           }),
         }}
       />
