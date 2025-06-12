@@ -266,6 +266,13 @@ Snippet:
         ],
         "description": "import component"
     },
+		"soutv": {
+				"prefix": "soutv",
+				"body": [
+					"console.log('$1:', $1);"
+				],
+				"description": "console the variable"
+		},
 }
 
 
