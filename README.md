@@ -70,14 +70,19 @@ window.location.href += (window.location.href.indexOf('?') > -1 ? '&' : '?') + '
 
 
 
+<code>
 function daysToYMD(days) {
   const years = Math.floor(days / 365);
   const months = Math.floor((days % 365) / 30);
   const d = days % 30;
-  return `${years}Y${months}M${d}D`;
+  
+  const parts = [];
+  if (years > 0) parts.push(`${years}Y`);
+  if (months > 0) parts.push(`${months}M`);
+  if (d > 0 || parts.length === 0) parts.push(`${d}D`);
+  
+  return parts.join(' ');
 }
 
-// 示例
-console.log(daysToYMD(400));  // 1Y1M5D
-console.log(daysToYMD(800));  // 2Y2M10D
-console.log(daysToYMD(45));   // 0Y1M15D
+</code>
+
