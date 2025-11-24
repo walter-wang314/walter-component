@@ -84,6 +84,47 @@ function daysToYMD(days) {
   return parts.join(' ');
 }
 
+
+
+Hi Mini,
+
+I hope you are doing well.
+
+First of all, I would like to thank you and the Client Messaging team for the opportunity to work together over the past months. I have really valued the chance to contribute to the team.
+
+I am writing to kindly ask you to reconsider the decision for my off-boarding date to be 30 November, which is only one week after the project go-live. From both a professional and personal perspective, it is very difficult for me to accept this arrangement, so I would appreciate it if this decision could be reviewed.
+
+Please also feel free to forward this email to whoever is able to make or influence this decision.
+
+To give some background:
+
+When I joined, I actually had three offers in hand, and I chose to join the Client Messaging team because I felt there was a special connection with the team and the work.
+
+I believe I have been fully capable in my role and have taken my responsibilities seriously. Over the past six months, I completed the development and production launch of ELISN and the Bond Primary / Bond Regular / Bond Sourcing related products. I also worked a lot of overtime, including weekends, but I did not submit any OT claims.
+
+My performance has been recognized positively by you, which I truly appreciate.
+
+Regarding the IWPB SHL test, when I signed the contract there was no mention that passing such a test would be a condition of continued employment, nor that failing it could lead to termination.
+
+In addition, the SHL test itself did not feel very standard. It focused heavily on JavaScript, including many IO-related questions, which may not fully reflect my day-to-day work and contributions to the team.
+
+Earlier, I was informed that my end date would be 31 December, and I planned my work and personal arrangements according to that. Only after the project went live was I told that the end date would instead be 30 November, just one week after go-live, which was a big and unexpected change for me.
+
+At the same time, from September 2021 to September 2024, I worked for three years in WSIT HSBCNET as a Consultant Specialist. I have always tried to be loyal and professional, and I sincerely hope the company can consider some alternative options beyond simply ending the contract earlier—for example, adjusting the end date or offering some form of compensation.
+
+My main request is:
+
+To change my off-boarding date to 31 December, so that I have sufficient time to complete proper handover, create documentation, and support the project in the first critical weeks after go-live, rather than leaving only one week afterwards.
+
+If possible, I would really appreciate it if we could arrange a short conversation with you and someone from the CTO or HR team to discuss this matter and see if there is a solution that works for both sides.
+
+If, after discussion, the decision truly cannot be changed, I will of course respect it. At the same time, I hope I can still share my work experience openly and honestly on public platforms (such as GitHub, Twitter, Facebook, etc.), based on facts and my personal feelings.
+
+Thank you very much for taking the time to read this long email and for considering my request. I genuinely appreciate your support and guidance so far, and I hope we can find a reasonable and fair arrangement together.
+
+Best regards,
+[Your Name]
+
 </code>
 
 
