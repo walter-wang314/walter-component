@@ -93,3 +93,19 @@ https://us06web.zoom.us/j/86059741081?pwd=6FBuNxCbaqA6ZhJmeTNgqThAgSKQal.1
 
 iterm2:
 https://segmentfault.com/a/1190000012786464
+
+
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Walter Wang
+	email = wzc314159@hotmail.com
+[alias]
+        co = checkout
+    	ci = commit
+    	br = branch
+    	st = status
