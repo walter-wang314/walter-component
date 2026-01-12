@@ -89,3 +89,7 @@ function daysToYMD(days) {
 
 
 https://us06web.zoom.us/j/86059741081?pwd=6FBuNxCbaqA6ZhJmeTNgqThAgSKQal.1
+
+
+iterm2:
+https://segmentfault.com/a/1190000012786464
